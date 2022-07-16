@@ -1,4 +1,4 @@
-name: Jacky Zhao
+name: fugohan
 enableToc: true
 openToc: false
 enableLinkPreview: true
@@ -8,8 +8,8 @@ enableCodeBlockCopy: true
 enableSPA: true
 enableFooter: true
 enableContextualBacklinks: true
-enableRecentNotes: false
-enableGitHubEdit: false
+enableRecentNotes: true
+enableGitHubEdit: true
 GitHubLink: https://github.com/fugohan/obs-publish-test-quarz/tree/hugo/content
 description:
   Host your second brain and digital garden for free. Quartz features extremely fast full-text search,
