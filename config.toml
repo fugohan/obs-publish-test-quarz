@@ -1,6 +1,6 @@
-baseURL = "https://quartz.jzhao.xyz/"
+baseURL = "https://fugohan.github.io/obs-publish-test-quarz/"
 languageCode = "en-us"
-googleAnalytics = "G-XYFD95KB4J"
+googleAnalytics = "G-XXXXXXXXXX"
 relativeURLs = false
 disablePathToLower = true
 ignoreFiles = [
