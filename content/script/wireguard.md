@@ -2,7 +2,7 @@
 
 ## install 
 
-''' bash 
+``` bash 
 
 sudo apt update
 sudo apt install wireguard -y
@@ -10,11 +10,11 @@ sudo apt install wireguard -y
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p
 
-'''
+```
 
 ## Generate keys 
 
-'''bash 
+```bash 
 
 #wg genkey | tee /etc/wireguard/private.key | wg pubkey | tee /etc/wireguard/public.key
 #wg genkey | tee /etc/wireguard/mobile-private.key | wg pubkey > /etc/wireguard/mobile-public.key
@@ -32,7 +32,7 @@ umask 077; wg genkey | tee privatekeyClient | wg pubkey > publickeyClient
 #cat publickey
 chmod 600 /etc/wireguard/privatekeyClient
 
-'''
+```
 <!---
 ### Für IPv6 
 '''bash
@@ -41,18 +41,18 @@ printf echo "$(date +%s%N)""$(cat /var/lib/dbus/machine-id)" | sha1sum | cut -c 
 -->
 ## Copy config 
 
-'''
+```
 /etc/wireguard/wg0.conf
 [Interface]
 PrivateKey = base64_encoded_private_key_goes_here
 Address = 10.8.0.1/24, fd24:609a:6c18::1/64
 ListenPort = 51820
 SaveConfig = true
-'''
+```
 
 or with cli magic: 
 
-'''bash 
+```bash 
 echo "[Interface]
 PrivateKey = ""$(tail /etc/wireguard/privatekey)""
 Address = 127.31.0.1/24
@@ -77,16 +77,16 @@ Endpoint = ""$(curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e
 AllowedIPs = 0.0.0.0/0
 PersistentKeepalive = 25" >> /etc/wireguard/client.conf
 
-'''
+```
 
 ## Add Client 
 
-'''bash 
+```bash 
 wg-quick up wg0
 wg set wg0 peer ""$(tail /etc/wireguard/publickeyClient)"" allowed-ips 172.31.0.2/32
 wg-quick down wg0
 wg-quick up wg0
-'''
+```
 <!---
 ## activate ipv4 
 
@@ -132,8 +132,8 @@ AllowedIPs = 0.0.0.0/0" >> /etc/wireguard/mobile.conf
 '''
 -->
 ## get create qr code 
-''' bash 
+``` bash 
 sudo apt install qrencode -< 
 qrencode -t ansiutf8 < /etc/wireguard/client.conf
 
-'''
+```
