@@ -1,4 +1,6 @@
-# Wireguard 
+---
+title: Wireguard 
+---
 
 ## install 
 
@@ -133,7 +135,7 @@ AllowedIPs = 0.0.0.0/0" >> /etc/wireguard/mobile.conf
 -->
 ## get create qr code 
 ``` bash 
-sudo apt install qrencode -< 
+sudo apt install qrencode -y 
 qrencode -t ansiutf8 < /etc/wireguard/client.conf
 
 ```
